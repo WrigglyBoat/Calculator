@@ -1,9 +1,12 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -20,6 +23,8 @@ public class CalculatorFrame extends JFrame implements ActionListener{
     JButton addBut, minusBut, multiBut, diviBut;
     JButton clearBut, enterBut;
     JPanel decorPanel, decorPanel2;
+    Font numFont = new Font("Comic Sans",Font.BOLD,15);
+    int counter = 0;
 
     CalculatorFrame() {
         this.setSize(500,700);
@@ -28,6 +33,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(new Color(105,105,105));;
+    
         decorPanel = new JPanel();
             decorPanel.setSize(40,700);
             decorPanel.setBackground(new Color(119,136,153));
@@ -41,6 +47,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
             fieldOne.setBounds(75,100,70,30);
         oneCheckBox = new JCheckBox();
             oneCheckBox.setBounds(50,100,25,30);
+            oneCheckBox.setSelected(true);
 
         fieldTwo = new JTextField();
             fieldTwo.setBounds(225,100,70,30);
@@ -50,15 +57,21 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         equalField = new JTextField();
             equalField.setBounds(350,100,70,30);
 
-
+        
+        
         //Number Buttons
         one = new JButton("1");
             one.setBounds(100,200,50,60);
+            one.setFont(numFont);
             one.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if(oneCheckBox.isEnabled()) {
-                        fieldOne.setText("1");
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 1);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 1);
                     }
                 }
                 
@@ -66,30 +79,148 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         
         two = new JButton("2");
             two.setBounds(175,200,50,60);
+            two.setFont(numFont);
+            two.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 2);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 2);
+                    }
+                }
+                
+            });
         
         three = new JButton("3");
             three.setBounds(250,200,50,60);
+            three.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 3);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 3);
+                    }
+                }
+                
+            });
 
         four = new JButton("4");
             four.setBounds(100,300,50,60);
+            four.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 4);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 4);
+                    }
+                }
+                
+            });
         
         five = new JButton("5");
             five.setBounds(175,300,50,60);
+            five.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 5);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 5);
+                    }
+                }
+                
+            });
         
         six = new JButton("6");
             six.setBounds(250,300,50,60);
+            six.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 6);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 6);
+                    }
+                }
+                
+            });
         
         seven = new JButton("7");
             seven.setBounds(100,400,50,60);
-
+            seven.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 7);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 7);
+                    }
+                }
+                
+            });
+    
         eight = new JButton("8");
             eight.setBounds(175,400,50,60);
+            eight.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 8);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 8);
+                    }
+                }
+                
+            });
         
         nine = new JButton("9");
             nine.setBounds(250,400,50,60);
+            nine.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 9);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 9);
+                    }
+                }
+                
+            });
         
         zero = new JButton("0");
             zero.setBounds(175,500,50,60);
+            zero.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(oneCheckBox.isSelected()) {
+                        fieldOne.setText(fieldOne.getText() + 0);
+                    } 
+                    
+                    if(twoCheckBox.isSelected()) {
+                        fieldTwo.setText(fieldTwo.getText() + 0);
+                    }
+                }
+                
+            });
 
 
         //Operator Buttons
@@ -107,9 +238,11 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         
         operatorLabel = new JLabel("_");
             operatorLabel.setBounds(175,100,30,30);
+            operatorLabel.setFont(new Font("Comic Sans", Font.PLAIN , 15));
 
         equalLabel = new JLabel("=");
-            equalLabel.setBounds(315,100,30,30);
+            equalLabel.setBounds(320,100,30,30);
+            equalLabel.setFont(new Font("Comic Sans", Font.BOLD, 15));
 
         clearBut = new JButton("C");
             clearBut.setBounds(100,500,50,60);
@@ -123,6 +256,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         addBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                operatorLabel.setText(addBut.getText());
                 addBut.setEnabled(false);
                 minusBut.setEnabled(true);
                 multiBut.setEnabled(true);
@@ -132,6 +266,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 
         minusBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                operatorLabel.setText(minusBut.getText());
                 addBut.setEnabled(true);
                 minusBut.setEnabled(false);
                 multiBut.setEnabled(true);
@@ -141,6 +276,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         
         multiBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                operatorLabel.setText(multiBut.getText());
                 addBut.setEnabled(true);
                 minusBut.setEnabled(true);
                 multiBut.setEnabled(false);
@@ -150,6 +286,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 
         diviBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                operatorLabel.setText(diviBut.getText());
                 addBut.setEnabled(true);
                 minusBut.setEnabled(true);
                 multiBut.setEnabled(true);
@@ -171,7 +308,42 @@ public class CalculatorFrame extends JFrame implements ActionListener{
         enterBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                if(!addBut.isEnabled()) {
+                    int num = Integer.parseInt(fieldOne.getText());
+                    int num2 = Integer.parseInt(fieldTwo.getText());
+                    int total = num + num2;
+                    String totalString = Integer.toString(total);
+                    equalField.setText(totalString);
+                }
+
+                if(!minusBut.isEnabled()) {
+                    int num = Integer.parseInt(fieldOne.getText());
+                    int num1 = Integer.parseInt(fieldTwo.getText());
+                    int total = num - num1;
+                    String totalString = Integer.toString(total);
+                    equalField.setText(totalString);
+                }
+
+                if(!multiBut.isEnabled()) {
+                    int num = Integer.parseInt(fieldOne.getText());
+                    int num1 = Integer.parseInt(fieldTwo.getText());
+                    int total = num * num1;
+                    String totalString = Integer.toString(total);
+                    equalField.setText(totalString);
+                }
+
+                if(!diviBut.isEnabled()) {
+                    if(fieldOne.getText() == "0") {
+                        equalField.setText("CANNOT DIVIDE BY 2");
+                        return;
+                    }
+                    int num = Integer.parseInt(fieldOne.getText());
+                    int num1 = Integer.parseInt(fieldTwo.getText());
+                    
+                    int total = num / num1;
+                    String totalString = Integer.toString(total);
+                    equalField.setText(totalString);
+                }
             }
             
         });
@@ -208,7 +380,6 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        
     }
 }
